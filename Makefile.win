@@ -1,0 +1,38 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = out/main.o out/Library_Json.o out/Value_Json.o out/Untitled7.o
+LINKOBJ  = out/main.o out/Library_Json.o out/Value_Json.o out/Untitled7.o
+LIBS     = -L"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+INCS     = -I"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = out/Project1.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+out/main.o: src/main.cpp
+	$(CPP) -c src/main.cpp -o out/main.o $(CXXFLAGS)
+
+out/Library_Json.o: src/Library_Json.cpp
+	$(CPP) -c src/Library_Json.cpp -o out/Library_Json.o $(CXXFLAGS)
+
+out/Value_Json.o: src/Value_Json.cpp
+	$(CPP) -c src/Value_Json.cpp -o out/Value_Json.o $(CXXFLAGS)
+
+out/Untitled7.o: Untitled7
+	$(CPP) -c Untitled7 -o out/Untitled7.o $(CXXFLAGS)
